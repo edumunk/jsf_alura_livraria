@@ -4,6 +4,8 @@ import javax.faces.bean.ManagedBean;
 
 import br.com.caelum.livraria.dao.DAO;
 import br.com.caelum.livraria.modelo.Autor;
+import br.com.caelum.livraria.util.NavigationView;
+import br.com.caelum.livraria.util.RedirectView;
 
 @ManagedBean
 public class AutorBean {
@@ -14,9 +16,11 @@ public class AutorBean {
 		return autor;
 	}
 
-	public void gravar() {
+	public NavigationView gravar() {
 		System.out.println("Gravando autor " + this.autor.getNome());
 
 		new DAO<Autor>(Autor.class).adiciona(this.autor);
+		
+		return new RedirectView("livro");
 	}
 }

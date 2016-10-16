@@ -51,6 +51,9 @@
 				action="#{livroBean.gravarAutor}">
 				<f:ajax execute="autor" render="tabelaAutores" />
 			</h:commandButton>
+			<br />
+			
+			<h:commandLink action="autor?faces-redirect=true" value="Cadastrar novo autor" immediate="true"/>
 
 			<h:dataTable value="#{livroBean.livro.autores}" var="autor" id="tabelaAutores">
 				<h:column>
